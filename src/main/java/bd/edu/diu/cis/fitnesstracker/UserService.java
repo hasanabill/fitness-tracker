@@ -10,33 +10,35 @@ import bd.edu.diu.cis.fitnesstracker.repo.UserRepository;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	UserRepository repo;
-	
+
 	public User save(User user) {
 		return repo.save(user);
 	}
-	
+
 	public User find(Long id) {
-		return repo.getById(id);
+		return repo.findById(id).orElse(null);
 	}
-	
-	public List<User> getAll (){
+
+	public List<User> getAll() {
 		return repo.findAll();
 	}
-	
+
 	public User edit(User user) {
-		User user2 = repo.findById(user.getId()).get();
-		user2.setAddress(user.getAddress());
-		user2.setEmail(user.getEmail());
-		user2.setPhone(user.getUsername());
-		user2.setUsername(user.getUsername());
-		return repo.save(user2);
+		User existingUser = repo.findById(user.getId()).orElse(null);
+		if (existingUser != null) {
+			existingUser.setAddress(user.getAddress());
+			existingUser.setEmail(user.getEmail());
+			existingUser.setPhone(user.getPhone());
+			existingUser.setUsername(user.getUsername());
+			return repo.save(existingUser);
+		}
+		return null;
 	}
-	
+
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}
-	
 }

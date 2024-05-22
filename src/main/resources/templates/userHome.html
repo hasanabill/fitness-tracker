@@ -5,22 +5,31 @@
     <title>User Home Page</title>
   </head>
   <body>
-    <h1>User Home Paggeee</h1>
+    <h1>User Home Page</h1>
     <a href="/user/new">Create new user</a>
 
-    <table>
+    <table border="1" cellpadding="10">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
+          <th>Username</th>
           <th>Email</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="user : ${users}">
           <td th:text="${user.id}"></td>
-          <td th:text="${user.name}"></td>
+          <td th:text="${user.username}"></td>
           <td th:text="${user.email}"></td>
+          <td>
+            <a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a>
+            <a
+              th:href="@{/user/delete/{id}(id=${user.id})}"
+              onclick="return confirm('Are you sure you want to delete this user?');"
+              >Delete</a
+            >
+          </td>
         </tr>
       </tbody>
     </table>
