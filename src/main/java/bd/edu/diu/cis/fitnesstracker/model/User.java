@@ -4,48 +4,59 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import java.util.List;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class User {
 
-	private long id;
-	private String username;
-	private String email;
-	private String address;
-	private String phone;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
-	@SequenceGenerator(allocationSize = 1, name = "userSequence")
-	public long getId() {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
+	private String gender;
+	private int age;
+	@OneToMany(mappedBy = "user")
+	private List<DailyRecord> dailyRecords;
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+
+	public String getName() {
+		return name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getGender() {
+		return gender;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getAddress() {
-		return address;
+
+	public int getAge() {
+		return age;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setAge(int age) {
+		this.age = age;
 	}
-	public String getPhone() {
-		return phone;
+
+	public List<DailyRecord> getDailyRecords() {
+		return dailyRecords;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+
+	public void setDailyRecords(List<DailyRecord> dailyRecords) {
+		this.dailyRecords = dailyRecords;
 	}
-	
+
 }

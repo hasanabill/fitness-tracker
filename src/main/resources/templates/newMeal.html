@@ -2,22 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Create New User</title>
+    <title>Create New Meal</title>
   </head>
   <body>
-    <h1>Create New User</h1>
+    <h1>Create New Meal</h1>
     <form
       action="#"
-      th:action="@{/users/save}"
-      th:object="${user}"
+      th:action="@{/meals/save}"
+      th:object="${meal}"
       method="post"
     >
       <label>Name:</label>
       <input type="text" th:field="*{name}" /><br />
-      <label>Gender:</label>
-      <input type="text" th:field="*{gender}" /><br />
-      <label>Age:</label>
-      <input type="number" th:field="*{age}" /><br />
+      <label>Calorie Value:</label>
+      <input type="number" th:field="*{calorieValue}" /><br />
+      <label>Portion Size (grams):</label>
+      <input type="number" th:field="*{portionSize}" /><br />
       <button type="submit">Save</button>
     </form>
   </body>

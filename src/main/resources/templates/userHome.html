@@ -2,33 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>User Home Page</title>
+    <title>User Home</title>
   </head>
   <body>
-    <h1>User Home Page</h1>
-    <a href="/user/new">Create new user</a>
-
+    <h1>User Home</h1>
+    <a href="/users/new">Create New User</a>
     <table border="1" cellpadding="10">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Username</th>
-          <th>Email</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Age</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="user : ${users}">
           <td th:text="${user.id}"></td>
-          <td th:text="${user.username}"></td>
-          <td th:text="${user.email}"></td>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.gender}"></td>
+          <td th:text="${user.age}"></td>
           <td>
-            <a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a>
-            <a
-              th:href="@{/user/delete/{id}(id=${user.id})}"
-              onclick="return confirm('Are you sure you want to delete this user?');"
-              >Delete</a
-            >
+            <a th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a> |
+            <a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
           </td>
         </tr>
       </tbody>

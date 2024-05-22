@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meal Home</title>
+  </head>
+  <body>
+    <h1>Meal Home</h1>
+    <a href="/meals/new">Create New Meal</a>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Calorie Value</th>
+          <th>Portion Size (grams)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="meal : ${meals}">
+          <td th:text="${meal.id}"></td>
+          <td th:text="${meal.name}"></td>
+          <td th:text="${meal.calorieValue}"></td>
+          <td th:text="${meal.portionSize}"></td>
+          <td>
+            <a th:href="@{/meals/edit/{id}(id=${meal.id})}">Edit</a> |
+            <a th:href="@{/meals/delete/{id}(id=${meal.id})}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
