@@ -12,8 +12,8 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
-    private int duration;
-    private int calorieBurn;
+    private int minutes;
+    private int calorieValue;
 
     public Long getId() {
         return id;
@@ -31,20 +31,20 @@ public class Exercise {
         this.type = type;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getMinutes() {
+        return minutes;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 
-    public int getCalorieBurn() {
-        return calorieBurn;
+    public int getCalorieValue() {
+        return calorieValue;
     }
 
-    public void setCalorieBurn(int calorieBurn) {
-        this.calorieBurn = calorieBurn;
+    public void setCalorieValue(int calorieValue) {
+        this.calorieValue = calorieValue;
     }
 
 }

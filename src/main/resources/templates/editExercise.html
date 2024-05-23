@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Exercise</title>
+  </head>
+  <body>
+    <h1>Edit Exercise</h1>
+    <form
+      action="#"
+      th:action="@{/exercises/update}"
+      th:object="${exercise}"
+      method="post"
+    >
+      <input type="hidden" th:field="*{id}" />
+      <label>Type:</label>
+      <input type="text" th:field="*{type}" /><br />
+      <label>Minutes:</label>
+      <input type="number" th:field="*{minutes}" /><br />
+      <label>Calorie Value:</label>
+      <input type="number" th:field="*{calorieValue}" /><br />
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

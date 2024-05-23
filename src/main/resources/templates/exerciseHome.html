@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise Home</title>
+  </head>
+  <body>
+    <h1>Exercise Home</h1>
+    <a href="/exercises/new">Create New Exercise</a>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Minutes</th>
+          <th>Calorie Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="exercise : ${exercises}">
+          <td th:text="${exercise.id}"></td>
+          <td th:text="${exercise.type}"></td>
+          <td th:text="${exercise.minutes}"></td>
+          <td th:text="${exercise.calorieValue}"></td>
+          <td>
+            <a th:href="@{/exercises/edit/{id}(id=${exercise.id})}">Edit</a> |
+            <a th:href="@{/exercises/delete/{id}(id=${exercise.id})}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
