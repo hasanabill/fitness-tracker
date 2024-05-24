@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Profile</title>
+</head>
+
+<body>
+    <div th:replace="./components/navbar"></div>
+    <div class="container mx-auto mt-8">
+        <h1 class="text-2xl font-semibold mb-4">User Profile</h1>
+        <div class="bg-white shadow-md rounded p-6">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Username</label>
+                <p id="username" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Name</label>
+                <p id="name" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Email</label>
+                <p id="email" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Gender</label>
+                <p id="gender" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Age</label>
+                <p id="age" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Weight</label>
+                <p id="weight" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Height</label>
+                <p id="height" class="text-gray-700"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold">Waist Size</label>
+                <p id="waistSize" class="text-gray-700"></p>
+            </div>
+            <div class="mt-6">
+                <a href="/profile/edit" class="btn btn-primary">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = localStorage.getItem('username');
+            if (username) {
+                fetch(`http://localhost:8082/api/user/${username}`)
+                    .then(response => response.json())
+                    .then(user => {
+                        document.getElementById('username').textContent = user.username;
+                        document.getElementById('name').textContent = user.name;
+                        document.getElementById('email').textContent = user.email;
+                        document.getElementById('gender').textContent = user.gender;
+                        document.getElementById('age').textContent = user.age;
+                        document.getElementById('weight').textContent = user.weight;
+                        document.getElementById('height').textContent = user.height;
+                        document.getElementById('waistSize').textContent = user.waistSize;
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

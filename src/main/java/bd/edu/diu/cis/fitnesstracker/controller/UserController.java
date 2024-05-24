@@ -24,6 +24,12 @@ public class UserController {
         return "userHome";
     }
 
+    @GetMapping("/api/user/{username}")
+    public User getUserByUsername(@PathVariable String username) {
+        System.out.println(username);
+        return userService.getUserByUsername(username);
+    }
+
     @GetMapping("/new")
     public String createUserForm(Model model) {
         model.addAttribute("user", new User());
