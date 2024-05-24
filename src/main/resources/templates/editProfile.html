@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Edit Profile</title>
+</head>
+
+<body class="bg-gray-100">
+    <div th:replace="./components/navbar.html"></div>
+    <div class="container mx-auto mt-10">
+        <div class="max-w-xl mx-auto bg-white p-8 shadow-lg rounded-lg">
+            <h1 class="text-2xl font-bold mb-6">Edit Profile</h1>
+            <form th:action="@{/profile/update}" th:object="${user}" method="post">
+                <input type="text" hidden th:field="*{id}" />
+                <input type="text" hidden th:field="*{password}" />
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Username:</label>
+                    <input type="text" th:field="*{username}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Email:</label>
+                    <input type="email" th:field="*{email}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Name:</label>
+                    <input type="text" th:field="*{name}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Gender:</label>
+                    <input type="text" th:field="*{gender}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Age:</label>
+                    <input type="number" th:field="*{age}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Weight:</label>
+                    <input type="text" th:field="*{weight}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Height:</label>
+                    <input type="text" th:field="*{height}" class="input input-bordered w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Waist Size:</label>
+                    <input type="text" th:field="*{waistSize}" class="input input-bordered w-full" />
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="btn btn-primary w-full">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
