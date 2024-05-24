@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Meal Home</title>
-  </head>
-  <body>
-    <h1>Meal Home</h1>
-    <a href="/meals/new">Create New Meal</a>
-    <table border="1" cellpadding="10">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Meal Home</title>
+</head>
+
+<body>
+  <div th:replace="./components/navbar"></div>
+  <div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-semibold mb-4">Meals</h1>
+    <a href="/meals/new" class="btn btn-success mb-4">Add Meal</a>
+    <table class="table table-zebra">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,11 +28,13 @@
           <td th:text="${meal.calorieValue}"></td>
           <td th:text="${meal.portionSize}"></td>
           <td>
-            <a th:href="@{/meals/edit/{id}(id=${meal.id})}">Edit</a> |
-            <a th:href="@{/meals/delete/{id}(id=${meal.id})}">Delete</a>
+            <a th:href="@{/meals/edit/{id}(id=${meal.id})}" class="btn btn-sm btn-info">Edit</a>
+            <a th:href="@{/meals/delete/{id}(id=${meal.id})}" class="btn btn-sm  btn-outline btn-error">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-  </body>
+  </div>
+</body>
+
 </html>

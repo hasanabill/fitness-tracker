@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>User Home</title>
-  </head>
-  <body>
-    <h1>User Home</h1>
-    <a href="/users/new">Create New User</a>
-    <table border="1" cellpadding="10">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>User</title>
+</head>
+
+<body>
+  <div th:replace="./components/navbar.html"></div>
+  <div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-semibold mb-4">User Home</h1>
+    <a class="btn btn-success" href="/users/new">Create New User</a>
+    <table class="table table-zebra">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,11 +28,13 @@
           <td th:text="${user.gender}"></td>
           <td th:text="${user.age}"></td>
           <td>
-            <a th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a> |
-            <a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
+            <a class="btn btn-info btn-sm" th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a>
+            <a class="btn btn-error btn-outline btn-sm" th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-  </body>
+  </div>
+</body>
+
 </html>

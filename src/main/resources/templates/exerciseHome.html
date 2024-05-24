@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Exercise Home</title>
-  </head>
-  <body>
-    <h1>Exercise Home</h1>
-    <a href="/exercises/new">Create New Exercise</a>
-    <table border="1" cellpadding="10">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Exercises</title>
+</head>
+
+<body>
+  <div th:replace="./components/navbar.html"></div>
+  <div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-semibold mb-4">Exercise Home</h1>
+    <a href="/exercises/new" class="btn btn-success mb-3">Add Exercise</a>
+    <table class="table table-zebra">
       <thead>
         <tr>
           <th>ID</th>
@@ -24,11 +28,15 @@
           <td th:text="${exercise.minutes}"></td>
           <td th:text="${exercise.calorieValue}"></td>
           <td>
-            <a th:href="@{/exercises/edit/{id}(id=${exercise.id})}">Edit</a> |
-            <a th:href="@{/exercises/delete/{id}(id=${exercise.id})}">Delete</a>
+            <a class="btn btn-info btn-sm" th:href="@{/exercises/edit/{id}(id=${exercise.id})}">Edit</a>
+            |
+            <a class="btn btn-error btn-outline btn-sm"
+              th:href="@{/exercises/delete/{id}(id=${exercise.id})}">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-  </body>
+  </div>
+</body>
+
 </html>

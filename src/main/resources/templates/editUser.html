@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Edit User</title>
-  </head>
-  <body>
-    <h1>Edit User</h1>
-    <form
-      action="#"
-      th:action="@{/users/update}"
-      th:object="${user}"
-      method="post"
-    >
-      <input type="hidden" th:field="*{id}" />
-      <label>Name:</label>
-      <input type="text" th:field="*{name}" /><br />
-      <label>Gender:</label>
-      <input type="text" th:field="*{gender}" /><br />
-      <label>Age:</label>
-      <input type="number" th:field="*{age}" /><br />
-      <button type="submit">Update</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit User</title>
+</head>
+
+<body>
+  <div th:replace="./components/navbar.html"></div>
+  <div class="container mx-auto mt-5">
+    <h1 class="text-3xl text-center font-semibold mb-4">Edit User</h1>
+    <form class="mx-auto max-w-md" action="#" th:action="@{/users/update}" th:object="${user}" method="post">
+      <input type="text" hidden th:field="*{id}" />
+      <div class="space-y-4">
+        <label class="form-control">
+          <span class="label-text">Full name</span>
+          <input placeholder="Enter your name" type="text" th:field="*{name}"
+            class="input input-bordered w-full max-w-md" />
+        </label>
+        <label class="form-control">
+          <span class="label-text">Gender</span>
+          <input placeholder="" type="text" th:field="*{gender}" class="input input-bordered w-full max-w-md" />
+        </label>
+        <label class="form-control">
+          <span class="label-text">Age:</span>
+          <input placeholder="" type="number" th:field="*{age}" class="input input-bordered w-full max-w-md" />
+        </label>
+      </div>
+      <button type="submit" class="btn btn-success mt-4">Update</button>
     </form>
-  </body>
+  </div>
+</body>
+
 </html>

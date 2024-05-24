@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Home Page</title>
-</head>
-<body>
-	<h1>Home Paggeee</h1>
-</body>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div th:replace="./components/navbar.html"></div>
+    <div class="container">
+      <h1>Welcome to Fitness Tracker</h1>
+      <p>Track your meals, exercises, weight, and waist size to stay fit!</p>
+    </div>
+  </body>
 </html>
