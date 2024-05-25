@@ -10,41 +10,47 @@
     <div th:replace="./components/navbar"></div>
     <div class="container mx-auto mt-8">
         <h1 class="text-2xl font-semibold mb-4">User Profile</h1>
-        <div class="bg-white shadow-md rounded p-6">
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Username</label>
-                <p id="username" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Name</label>
-                <p id="name" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Email</label>
-                <p id="email" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Gender</label>
-                <p id="gender" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Age</label>
-                <p id="age" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Weight</label>
-                <p id="weight" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Height</label>
-                <p id="height" class="text-gray-700"></p>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold">Waist Size</label>
-                <p id="waistSize" class="text-gray-700"></p>
+        <div class="bg-white shadow-md rounded py-6 px-96">
+            <div class="flex justify-between items-center">
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Username</label>
+                        <p id="username" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Name</label>
+                        <p id="name" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Email</label>
+                        <p id="email" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Gender</label>
+                        <p id="gender" class="text-gray-700"></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Age</label>
+                        <p id="age" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Weight</label>
+                        <p id="weight" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Height</label>
+                        <p id="height" class="text-gray-700"></p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold">Waist Size</label>
+                        <p id="waistSize" class="text-gray-700"></p>
+                    </div>
+                </div>
             </div>
             <div class="mt-6">
-                <button onclick="editProfile()" class="btn btn-primary">Edit Profile</button>
+                <button onclick="editProfile()" class="btn btn-info">Edit Profile</button>
             </div>
         </div>
     </div>
